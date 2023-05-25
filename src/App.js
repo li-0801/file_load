@@ -53,7 +53,7 @@ function App() {
     const beforeUpload = (file) => {
         // clear
         reset();
-
+        console.log(file);
         setFile(file);
         return false;
     };
@@ -82,7 +82,7 @@ function App() {
     const upload = async () => {
         try {
             if (!file) return;
-
+            console.log(uploadState,UPLOAD_STATES.INITIAL);
             if (uploadState === UPLOAD_STATES.INITIAL) {
                 toastId.current = toast.loading('分片...');
                 const fileChunkList = createChunks(file, fileChunkSize);
@@ -434,7 +434,7 @@ function App() {
                             </Col>
                         </Row>
                         <Divider />
-                        <Row>
+                        {/* <Row>
                             <Col span={10} className='center'>
                                 切片Hash
                             </Col>
@@ -444,11 +444,11 @@ function App() {
                             <Col span={10} className='center'>
                                 上传进度
                             </Col>
-                        </Row>
+                        </Row> */}
                     </>
                 )}
 
-                {renderChunks()}
+                {/* {renderChunks()} */}
             </div>
         </>
     );
